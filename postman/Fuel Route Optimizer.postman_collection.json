@@ -1,0 +1,57 @@
+{
+  "info": {
+    "_postman_id": "d6e98c4d-7f0a-4c0d-8b9e-9b7b9c1f0e21",
+    "name": "Fuel Route Optimizer",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/health/"
+      }
+    },
+    {
+      "name": "Optimize Route \u2014 New York to Chicago",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"start\": \"New York, NY\",\n  \"finish\": \"Chicago, IL\"\n}"
+        },
+        "url": "{{base_url}}/api/v1/routes/optimize/"
+      }
+    },
+    {
+      "name": "Optimize Route \u2014 Dallas to Denver",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"start\": \"Dallas, TX\",\n  \"finish\": \"Denver, CO\",\n  \"initial_fuel_gallons\": 50\n}"
+        },
+        "url": "{{base_url}}/api/v1/routes/optimize/"
+      }
+    }
+  ]
+}
